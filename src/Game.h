@@ -20,7 +20,8 @@ private:
     void handlePlayerInput(sf::Keyboard::Key key, bool isPressed);
 
     sf::RenderWindow m_window;
-    sf::CircleShape m_player;
+    sf::Texture m_texture;
+    sf::Sprite  m_player;
 
     bool m_isMovingUp = false;
     bool m_isMovingDown = false;

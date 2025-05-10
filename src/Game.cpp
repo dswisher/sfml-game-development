@@ -1,16 +1,23 @@
 
 #include "Game.h"
 
-const float Game::PlayerSpeed = 100.f;
+const float Game::PlayerSpeed = 200.f;
 const sf::Time Game::TimePerFrame = sf::seconds(1.f/60.f);
 
 
 Game::Game()
     : m_window(sf::VideoMode({1920u, 1080u}), "SFML Application")
+    , m_player(m_texture)
 {
-    m_player.setRadius(40.f);
+    if (!m_texture.loadFromFile("resources/images/eagle.png"))
+    {
+        // Handle loading error
+        throw std::runtime_error("Failed to load texture");
+    }
+
+    m_player = sf::Sprite(m_texture);
+
     m_player.setPosition({100.f, 100.f});
-    m_player.setFillColor(sf::Color::Cyan);
 }
 
 

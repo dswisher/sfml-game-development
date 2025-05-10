@@ -19,6 +19,10 @@ find_package(SFML COMPONENTS Graphics Window REQUIRED)
 add_executable(main src/main.cpp
         src/Game.cpp
         src/Game.h)
+
 target_compile_features(main PRIVATE cxx_std_17)
 target_link_libraries(main PRIVATE SFML::Graphics)
+
+# Process the resources (images, etc)
+add_subdirectory(resources)
 
